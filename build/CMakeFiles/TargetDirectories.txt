@@ -1,0 +1,3 @@
+D:/Redwire/Huffmanencoding/build/CMakeFiles/HuffmanEncoding.dir
+D:/Redwire/Huffmanencoding/build/CMakeFiles/ALL_BUILD.dir
+D:/Redwire/Huffmanencoding/build/CMakeFiles/ZERO_CHECK.dir

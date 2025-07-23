@@ -8,7 +8,7 @@
 #include <map>
 #include <iostream>
 
-bool encodeFile(std::string filename){};
-std::map<char, float> retrieveCharDistribution(std::vector<std::vector<char>> content){};
+bool encodeFile(std::string filename);
+std::map<char, float> retrieveCharDistribution(std::vector<std::vector<char>> content);
 
 #endif

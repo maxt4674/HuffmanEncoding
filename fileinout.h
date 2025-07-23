@@ -3,11 +3,11 @@
 
 #include <string>
 #include <fstream>
-#include <filesystem>
 #include <vector>
 
 bool isFileValid(std::string filename){
-    if(std::filesystem::exists(filename)){
+    std::ifstream file(filename);
+    if(file.good()){
         return true;
     } else {
         return false;

@@ -27,7 +27,12 @@ int main(){
 
                     if(isFileValid(filename)){
                         printFileFound();
-                        encodeFile(filename);
+
+                        if(encodeFile(filename)){
+                            std::cout << "Success!";
+                        } else {
+                            std::cout << "Failure!";
+                        }
                     } else {
                         printFileNotFound();
                     }

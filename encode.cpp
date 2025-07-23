@@ -2,16 +2,17 @@
 
 bool encodeFile(std::string filename){
     std::vector<std::vector<char>> precodedArr = readFileChar(filename);
+    std::cout << precodedArr.size() << std::endl;
     std::map<char, float> probabilityDistribution = retrieveCharDistribution(precodedArr);
+
+    for(const auto& pair : probabilityDistribution){
+        std::cout << pair.first << ": " << pair.second << std::endl;
+    }
 
     if(probabilityDistribution.empty()){
         return false;
     } else {
         return true;
-    }
-
-    for(const auto& pair : probabilityDistribution){
-        std::cout << pair.first << ": " << pair.second << std::endl;
     }
 };
 
@@ -40,7 +41,7 @@ std::map<char, float> retrieveCharDistribution(std::vector<std::vector<char>> co
         char charCounted = pair.first;
         int charCount = pair.second;
 
-        float probability = charCount / totalSize;
+        float probability = charCount / float(totalSize);
 
         charProbability.insert({charCounted, probability});
     }

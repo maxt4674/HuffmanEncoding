@@ -7,13 +7,16 @@
     <ClCompile Include="D:\Redwire\HuffmanEncoding\encode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="D:\Redwire\HuffmanEncoding\fileinout.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="D:\Redwire\HuffmanEncoding\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{DEA93E1A-35C4-3CEB-8B1C-C9BB94D8D2BF}</UniqueIdentifier>
+      <UniqueIdentifier>{3E794CA3-4724-3C04-BE89-DCA5CB6D1A3A}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

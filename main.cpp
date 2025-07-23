@@ -27,7 +27,7 @@ int main(){
 
                     if(isFileValid(filename)){
                         printFileFound();
-                        
+                        encodeFile(filename);
                     } else {
                         printFileNotFound();
                     }

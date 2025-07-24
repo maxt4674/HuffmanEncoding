@@ -8,6 +8,7 @@ bool encodeFile(std::string filename){
         return false;
     }
 
+    std::cout << std::endl;
     std::cout << "Probability Distribution of Characters in Document" << std::endl;
     std::cout << std::endl;
 
@@ -23,6 +24,10 @@ bool encodeFile(std::string filename){
     if(binaryDist.empty()){
         return false;
     }
+
+    std::cout << std::endl;
+    std::cout << "Binary Representation of Characters" << std::endl;
+    std::cout << std::endl;
 
     for(const auto& pair : binaryDist){
         char charIn = pair.first;

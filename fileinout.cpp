@@ -35,6 +35,15 @@ bool writeEncodedFile(std::map<char, std::vector<int>> binaryDist, std::string f
     std::vector<std::vector<char>> charFile = readFileChar(filename);
 
     if(outputFile.is_open()){
+        for(const auto& pair : binaryDist){
+            outputFile << pair.first;
+            for(int i = 0; i < pair.second.size(); i++){
+                outputFile << pair.second.at(i);
+            }
+            outputFile << std::endl;
+        }
+        outputFile << std::endl;
+
         for(int i = 0; i < charFile.size(); i++){
             for(int j = 0; j < charFile.at(i).size(); j++){
                 std::vector<int> indvCode = binaryDist[charFile.at(i).at(j)];
@@ -50,4 +59,6 @@ bool writeEncodedFile(std::map<char, std::vector<int>> binaryDist, std::string f
     } else {
         return false;
     }
+
+    return true;
 }

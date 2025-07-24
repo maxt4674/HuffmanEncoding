@@ -8,4 +8,5 @@ add_executable(HuffmanEncoding
     main.cpp
     encode.cpp
     fileinout.cpp
+    node.cpp
 )

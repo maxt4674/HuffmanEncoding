@@ -8,6 +8,16 @@ bool encodeFile(std::string filename){
         return false;
     }
 
+    std::cout << "Probability Distribution of Characters in Document" << std::endl;
+    std::cout << std::endl;
+
+    for(const auto& pair : probabilityDistribution){
+        char charIn = pair.first;
+        float probIn = pair.second;
+
+        std::cout << charIn << ": " << probIn << std::endl;
+    }
+
     std::map<char, std::vector<int>> binaryDist = convertProbToBinaryDist(probabilityDistribution);
 
     if(binaryDist.empty()){
@@ -26,6 +36,13 @@ bool encodeFile(std::string filename){
 
         std::cout << std::endl;
     }
+    std::cout << std::endl;
+
+    if(!writeEncodedFile(binaryDist, filename)){
+        return false;
+    }
+
+    std::cout << "Encoded File written!" << std::endl;
 
     return true;
 };

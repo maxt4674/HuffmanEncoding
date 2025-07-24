@@ -25,5 +25,29 @@ std::vector<std::vector<char>> readFileChar(std::string filename){
         }
     }
 
+    fileReader.close();
+
     return outputArray;
+}
+
+bool writeEncodedFile(std::map<char, std::vector<int>> binaryDist, std::string filename){
+    std::ofstream outputFile("encoded_" + filename);
+    std::vector<std::vector<char>> charFile = readFileChar(filename);
+
+    if(outputFile.is_open()){
+        for(int i = 0; i < charFile.size(); i++){
+            for(int j = 0; j < charFile.at(i).size(); j++){
+                std::vector<int> indvCode = binaryDist[charFile.at(i).at(j)];
+
+                for(int x = 0; x < indvCode.size(); x++){
+                    outputFile << indvCode.at(x);
+                }
+            }
+            outputFile << std::endl;
+        }
+
+        outputFile.close();
+    } else {
+        return false;
+    }
 }

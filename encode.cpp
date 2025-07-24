@@ -5,9 +5,13 @@ bool encodeFile(std::string filename){
     std::cout << precodedArr.size() << std::endl;
     std::map<char, float> probabilityDistribution = retrieveCharDistribution(precodedArr);
 
+    float total = 0;
     for(const auto& pair : probabilityDistribution){
         std::cout << pair.first << ": " << pair.second << std::endl;
+        total += pair.second;
     }
+
+    std::cout << "Total Prob: " << total << std::endl;
 
     if(probabilityDistribution.empty()){
         return false;
@@ -45,6 +49,10 @@ std::map<char, float> retrieveCharDistribution(std::vector<std::vector<char>> co
 
         charProbability.insert({charCounted, probability});
     }
-    
+
     return charProbability;
 };
+
+std::map<char, std::vector<int>> convertProbToBinaryTree(std::map<char, float> probabilityDistribution){
+    
+} 

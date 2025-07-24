@@ -10,5 +10,6 @@
 
 bool encodeFile(std::string filename);
 std::map<char, float> retrieveCharDistribution(std::vector<std::vector<char>> content);
+std::map<char, std::vector<int>> convertProbToBinaryTree(std::map<char, float> probabilityDistribution);
 
 #endif

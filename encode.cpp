@@ -45,8 +45,6 @@ std::map<char, float> retrieveCharDistribution(std::vector<std::vector<char>> co
 
         charProbability.insert({charCounted, probability});
     }
-
-
-
+    
     return charProbability;
 };

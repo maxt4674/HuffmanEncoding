@@ -45,6 +45,7 @@ int main(){
 
                     if(isFileValid(filename)){
                         printFileFound();
+                        decodeFile(filename);
                     } else {
                         printFileNotFound();
                     }

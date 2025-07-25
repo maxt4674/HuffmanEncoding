@@ -9,4 +9,5 @@ add_executable(HuffmanEncoding
     encode.cpp
     fileinout.cpp
     node.cpp
+    decode.cpp
 )

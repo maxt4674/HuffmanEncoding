@@ -43,6 +43,7 @@ bool writeEncodedFile(std::map<char, std::vector<int>> binaryDist, std::string f
             outputFile << std::endl;
         }
         outputFile << std::endl;
+        outputFile << std::endl;
 
         for(int i = 0; i < charFile.size(); i++){
             for(int j = 0; j < charFile.at(i).size(); j++){
@@ -61,4 +62,26 @@ bool writeEncodedFile(std::map<char, std::vector<int>> binaryDist, std::string f
     }
 
     return true;
+}
+
+std::map<std::string, char> retrieveBinaryDist(std::string filename){
+    std::map<std::string, char> returnBinaryDist;
+
+    std::ifstream fileReader(filename);
+
+    if(fileReader.is_open()){
+        std::string line;
+        while(std::getline(fileReader, line)){
+            if(line.size() > 1){
+                char charIn = line.at(0);
+                std::string binaryIn = line.substr(1);
+
+                returnBinaryDist.insert({binaryIn, charIn});
+            } else {
+                break;
+            }
+        }
+    }
+
+    return returnBinaryDist;
 }

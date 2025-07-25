@@ -9,5 +9,6 @@
 bool isFileValid(std::string filename);
 std::vector<std::vector<char>> readFileChar(std::string filename);
 bool writeEncodedFile(std::map<char, std::vector<int>> binaryDist, std::string filename);
+std::map<std::string, char> retrieveBinaryDist(std::string filename);
 
 #endif

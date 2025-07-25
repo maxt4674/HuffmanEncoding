@@ -18,6 +18,13 @@ bool decodeFile(std::string filename){
     }
 
     std::cout << std::endl;
+    std::cout << "Decoding file..." << std::endl;
+
+    if(!writeDecodedFile(binaryDist, filename)){
+        return false;
+    }
+
+    std::cout << "File decoded and written to an output file!" << std::endl;
 
     return true;
 }

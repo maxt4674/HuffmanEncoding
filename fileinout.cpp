@@ -82,6 +82,57 @@ std::map<std::string, char> retrieveBinaryDist(std::string filename){
             }
         }
     }
+    fileReader.close();
 
     return returnBinaryDist;
+}
+
+bool writeDecodedFile(std::map<std::string, char> binaryDist, std::string filename){
+    std::ifstream inputFile(filename);
+    std::vector<std::string> encodedVec;
+
+    if(inputFile.is_open()){
+        int i = 0;
+        std::string line;
+        while(std::getline(inputFile, line)){
+            if(i >= binaryDist.size() + 2){
+                encodedVec.push_back(line);
+            }
+            i++;
+        }
+        inputFile.close();
+    } else {
+        return false;
+    }
+
+    std::string editedFilename = splitString(filename, '_').at(1);
+    std::ofstream outputFile("decoded_" + editedFilename);
+    
+    if(outputFile.is_open()){
+        for (const std::string& encodedLine : encodedVec) {
+            std::string buffer;
+            for (char c : encodedLine) {
+                buffer += c;
+                if (binaryDist.count(buffer)) {
+                    outputFile << binaryDist[buffer];
+                    buffer.clear();
+                }
+            }
+            outputFile << std::endl;
+        }
+    } else {
+        return false;
+    }
+
+    return true;
+}
+
+std::vector<std::string> splitString(const std::string& s, char delimiter) {
+    std::vector<std::string> tokens;
+    std::string token;
+    std::istringstream tokenStream(s);
+    while (std::getline(tokenStream, token, delimiter)) {
+        tokens.push_back(token);
+    }
+    return tokens;
 }
